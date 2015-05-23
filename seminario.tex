@@ -1,0 +1,194 @@
+\documentclass[12pt,t]{beamer}
+\usepackage[brazil]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{beamerthemeboadilla}
+\usepackage[alf]{abntex2cite}	
+\usepackage{tabulary}
+\usepackage{tabularx} 
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{etoolbox}
+\usepackage{mathabx}
+\usepackage{url}
+\usepackage{listings}
+
+\usepackage[htt]{hyphenat}
+\usepackage{etoolbox}
+\usepackage[abs]{overpic}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\newcommand\eqdef{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+
+\institute{POO 2015\\IME -- USP}
+\author{Bruno Sofiato\\Vinicius Nascimento Silva}
+
+\title{Reflexão computacional e meta-objetos}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+{\vfill}
+{\vskip\itemsep}
+{}
+{}
+\makeatother  
+%\usepackage{default}
+
+\AtBeginSection[]{
+	\begin{frame}[c]{ }
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\huge\insertsectionhead\par%
+		\end{beamercolorbox}
+	\end{frame}
+}
+
+
+\begin{document}
+\abovedisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayskip=0pt
+\belowdisplayshortskip=0pt	
+ \frame{\titlepage}
+ \begin{frame}{Agenda}
+	\tableofcontents
+ \end{frame}
+ \section{Introdução}
+ \begin{frame}{XXX}
+ 	Colocar algumas estatísticas, não sei muito bem o que colocar aqui.
+ \end{frame}
+ \section{Meta-modelo}
+	 \begin{frame}{Meta-}
+	 	\begin{block}{Etimologia}
+	 		O prefixo meta- remete ao grego \alert{COLOCAR}, que significa \emph{além} ou \emph{depois}.
+	 	\end{block}
+	 	\begin{block}{Significado}
+	 		Geralmente é usado para representar um conceito que é uma abstração de outro.
+	 	\end{block}
+	 	\begin{exampleblock}{Exemplos}
+	 		\begin{description}[Metalinguagem]
+	 			\item [Metafísica]  		\alert{Colocar um texto legal}
+	 			\item [Metalinguagem] São linguagens utilizadas para definição de outras linguagens:
+	 			\begin{itemize}
+	 				\item EBNF 
+	 				\item XML (schema)
+	 			\end{itemize}
+	 		\end{description}
+	 	\end{exampleblock}
+	 	\end{frame}
+	 	\begin{frame}{Metamodelo}
+	 		\begin{block}{Definição}
+	 			Informalmente é um modelo de um modelo.
+	 		\end{block}
+	 		\begin{block}{Usos}
+	 			\alert{Escrever algo sobre os usos de um meta-modelo}
+	 		\end{block}
+	 		\begin{exampleblock}{Exemplos}
+	 			\begin{description}[Datawarehousing]
+	 			\item [Construção Civil] \emph{Building Information Model} (BIM);
+	 			\item [Datawarehousing]		
+	 		\emph{Common Warehouse MetaModel} (CWM);
+	 			\item [Matemática] Teoria das Categorias;
+	 			\item [Programas OO] \emph{Unified Modeling Language} (UML).
+	 		\end{description}
+		\end{exampleblock}
+	 \end{frame}
+	 \begin{frame}{MOF -- Meta-object Facility}
+	 	\begin{block}{Características}
+	 		\begin{itemize}
+	 			\item Definida pela OMG (Object Management Group) para a modelagem de metadados (versão atual -- 2.4.2);
+	 			\item Define quatro camadas (do nível três ao zero).	
+	 		\end{itemize}
+	 	\end{block}	 
+	 	\begin{block}{ }
+	 		\alert{FIGURA -- adaptar da pagina MOF da wikipedia}
+	 		\alert{Nesse momento explicar o conceito da reificação}
+	 		%\url{http://en.wikipedia.org/wiki/Meta-Object_Facility#/media/File:M0-m3.png}
+	 	\end{block}
+	 \end{frame}
+	 \begin{frame}{Meta-modelo UML}
+	 	\begin{block}{Características}
+	 		\begin{itemize}
+	 			\item Mantido pela OMG, define a estrutura e a semântica dos construtos da UML (versão atual -- 2.4.2);
+	 			\item Incluso na 2a camada MOF;
+	 			\item Descrito em dois manuais complementares:
+	 			\begin{description}[Superestrutura]
+	 				\item [Infraestrutura] \alert{Escrever o que é}
+	 				\item [Superestrutura] \alert{Escrever o que é}
+	 			\end{description}
+	 		\end{itemize}
+	 	\end{block}
+	\end{frame}
+	 \begin{frame}{Metamodelo UML -- Trecho}
+	 		\alert{FIGURA (trecho do meta-modelo)}
+	 \end{frame}
+	 \begin{frame}[c]{ }
+		\centering
+		\LARGE E se esse modelo estivesse disponível em tempo de execução ?
+	 \end{frame}
+ \section{Programação Reflexiva}
+	 \begin{frame}{O que é reflexão}
+	   Fazer ponte com a seção anterior (ver uma maneira legal).
+	   Usar a definição em http://www.laputan.org/talks/ss98/sld003.htm
+	 \end{frame}
+	 \begin{frame}{História}
+	 	Colocar a história.
+  	 \end{frame}
+  	 \begin{frame}{Meta-object Protocol MOP}
+  	 	Ideia Dizer as estruturas OO é diferente do UML, logo, cada linguagem pode ter uma estrutura diferente. Um protocolo de Meta-objetos é justamente a interface para manipulação desses meta-objetos. protocolo vem do conceito de protocolos do smalltalk  
+  	 \end{frame}	 
+		 \begin{frame}{Introspecção -- Examinando a estrutura de um programa}
+		 	Colocar que é um subconjunto de reflexão, colocar alguns exemplos do que dar pra fazer (Java). Alguns exemplos de estrutura e alguns exemplos de context (stack trace em java).
+		 \end{frame}
+ 	 	 \begin{frame}{Reflexão -- Modificando a estrutura de um programa}
+ 	 	 	Colocar alguns exemplos de coisas que da pra fazer em Smalltalk e outra linguagem.
+ 	 	 \end{frame}
+ 	  	 \begin{frame}{Suporte à Programação Reflexiva}
+ 	  	 	\alert{Tabelinha com algumas linguagens e suas capacidades}
+ 	  	 \end{frame}
+ 	 \begin{frame}{Críticas à Programação Reflexiva}
+ 	 	\begin{block}{Princípio Aberto/Fechado}
+ 	 		Reflexão pode ferir o princípio Aberto/Fechado \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
+ 	 	\end{block}
+ 	 	\begin{block}{Encapsulamento}
+ 	 		Com reflexão, é trivial ignorar modificadores de acesso:
+ 	 		\alert{Trecho de Código Java} 
+ 	 	\end{block}
+ 	 \end{frame}
+ 	 \begin{frame}{Críticas à Programação Reflexiva}
+ 	 	\begin{block}{Perigoso}
+ 	 		\alert{Algo de Brian Foote}
+ 	 		\alert{Exemplo de crashing de smalltalk}
+ 	 	\end{block}
+ 	 	\begin{block}{Desempenho}
+ 	 		\begin{itemize}
+ 	 			\item Invocações via reflexão costumam ter um custo de invocação maior -- \alert{questão de implementação};
+ 	 			\item \alert{Colocar dados}
+ 	 		\end{itemize}
+ 	 	\end{block}
+ 	 \end{frame}
+ 	\section{Exemplos}
+	 \begin{frame}{Open C++}
+	 	Um pouco da história, e exemplos.
+	 \end{frame}
+	 \begin{frame}{Javaassist}
+	 	Um pouco da história, e exemplos.
+	 \end{frame}
+	 \begin{frame}{Easymock}
+	 	Mostrar o conceito de dynamic proxies do java (nativo)
+	 	Mostrar como é implementado. 
+	 	Fazer um paralelo com uma implementação em smalltalk, onde tem reflection ''de verdade'';
+	 \end{frame}
+ \section{Referências}
+ \begin{frame}[allowframebreaks]{Referências}
+   \bibliography{apresentacao}
+  \end{frame}
+\end{document}
+
