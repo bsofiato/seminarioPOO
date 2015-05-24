@@ -128,31 +128,66 @@
 	 \begin{frame}{Metamodelo UML -- Trecho}
 	 		\alert{FIGURA (trecho do meta-modelo)}
 	 \end{frame}
-	 \begin{frame}[c]{ }
-		\centering
-		\LARGE E se esse modelo estivesse disponível em tempo de execução ?
-	 \end{frame}
+	% \begin{frame}[c]{ }
+	%	\centering
+	%	\LARGE E se esse modelo estivesse disponível em tempo de execução ?
+	% \end{frame}
  \section{Programação Reflexiva}
 	 \begin{frame}{O que é reflexão}
 	 	\begin{block}{Definição}
-	 		\alert{Escrever --  Fazendo ponte com a seção anterior (ver uma maneira legal).}
-		   Usar a definição em http://www.laputan.org/talks/ss98/sld003.htm	 		
+	 		\emph{''It's all about building your language out of first-class, dynamic object that you can look at and change at runtime''}
+	 		\begin{flushright}
+	 			Brian Foote
+	 	\end{flushright} 	 		
+	 	\end{block}
+	 	\begin{block}{História}
+	 		\begin{description}[9999]
+	 			\item[1982] Definição por \citeonline{smith1982reflection} das características de sistemas ditos reflexivos;
+	 			\item[1983] Smalltalk-80 incorpora a noção classes sendo objetos -- podendo assim responder à mensagens;
+	 			\item[1984] \citeonline{friedman1984reification} descrevem um mecanismo que permite a criação de sistemas reflexivos;
+	 			\item[1991] \citeonline{kiczales1991art} escreve o livro \emph{The Art of Metaobject Protocol}.
+	 		\end{description}
+	 	\end{block}	
+	 \end{frame}
+	 \begin{frame}{Procedural reflection in programming languages \cite{smith1982reflection}}
+	 	\begin{block}{Descrição}
+	 		Na tese de doutorado de Brian Cantwell Smith (\emph{Procedural reflection in programming languages}), são definidas três caraterísticas básicas necessárias em sistemas reflexivos. 
+	 	\end{block}
+	 	\begin{block}{Características -- Sistemas Reflexivos}
+	 	  \begin{enumerate}
+	 	  	\item Um sistema deve ter uma representação de si mesmo;
+	 	  	\item Deve haver uma conexão causal entre um sistema e sua representação;
+	 	  	\item Devem existir mecanismos com os quais um programa pode manipular sua representação. 
+	 	  \end{enumerate}
 	 	\end{block}
 	 \end{frame}
-	 \begin{frame}{História}
-	 	Colocar a história.
-  	 \end{frame}
-	 \begin{frame}{Reificação}
-	 	\begin{block}{Definições}
-	 		''The treatment of something abstract as a material or concrete thing'' (Enciclopédia britanica)
-	 		\\ Reificação é a conversão de um componente de um programa em algo por ele manipulável.  \cite{friedman1984reification}
-	 	\end{block}	 	 			
+	 \begin{frame}{Reification -- Reflection without Metaphysics  \cite{friedman1984reification}}
 	 	\begin{block}{ }
-		 	\alert{Figura reificação}
-	 	\end{block}	 	 			
+	 		\alert{Colocar figura}
+	 	\end{block}
+	 	\begin{block}{Operações}
+	 	\begin{description}[reificação]
+	 				\item [reificação] Transforma o programa em execução em uma representação a ele disponível;
+	 				\item [reflexão] Reflete, em um programa em execução, as modificações realizadas na sua representação.
+	 			\end{description}
+	 	\end{block}
+	 	
 	 \end{frame}	  	 
-  	 \begin{frame}{Meta-object Protocol -- MOP}
-  	 	Ideia Dizer as estruturas OO é diferente do UML, logo, cada linguagem pode ter uma estrutura diferente. Um protocolo de Meta-objetos é justamente a interface para manipulação desses meta-objetos. protocolo vem do conceito de protocolos do smalltalk  
+  	 \begin{frame}{The Art of Metaobject Protocol \cite{kiczales1991art}}
+  	 	\begin{block}{Descrição}
+  	 		Descreve a implementação do protocolo de metaobjetos do CLOS (Common Lisp Object System).
+  	 	\end{block}
+  	 	\begin{block}{Protocolo de Metaobjetos}
+  	 		\begin{itemize}
+  	 			\item É a interface para acesso aos metaobjetos de um sistema (semelhante ao conceito de protocolo de Smalltalk);
+  	 			\item Dependente de linguagem ($\neq$ Metamodelo UML);  
+  	 			\item Suas operações podem ser agrupadas em dois grupos:
+  	 			\begin{description}[Introspecção]
+  	 				\item [Introspecção] Examinam a estrutura e estado do programa;
+  	 				\item [Intercessão] Realizam mudanças estruturais e comportamentais no programa.
+  	 			\end{description}
+  	 		\end{itemize}
+  	 	\end{block} 
   	 \end{frame}	
  	 \begin{frame}{Introspecção}
  	 	\alert{Escrever algo}
@@ -175,6 +210,7 @@
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Perigoso}
+ 	 		http://www.laputan.org/talks/ss98/sld003.htm
  	 		\alert{Algo de Brian Foote}
  	 		\alert{Exemplo de crashing de smalltalk}
  	 	\end{block}
