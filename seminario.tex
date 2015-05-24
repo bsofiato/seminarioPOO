@@ -63,6 +63,7 @@
  \section{Introdução}
  \begin{frame}{XXX}
  	Colocar algumas estatísticas, não sei muito bem o que colocar aqui.
+ 	Colocar que o foco sera linguagens orientadas à objetos baseadas em classe.
  \end{frame}
  \section{Meta-modelo}
 	 \begin{frame}{Meta-}
@@ -190,15 +191,55 @@
   	 	\end{block} 
   	 \end{frame}	
  	 \begin{frame}{Introspecção}
- 	 	\alert{Escrever algo}
-		exemplos de estrutura e alguns exemplos de context (stack trace em java).		 	 	
+ 	 	\begin{block}{Definição}
+ 	 		Segundo \citeonline{forman2004java}, introspecção é o ato de examinar a estrutura e o estado de um programa em execução.
+ 	 	\end{block}
+ 	 	\begin{block}{Suporte}
+ 	 		\begin{description}[Smalltalk]
+ 	 			\item [Smalltalk] \alert{Colocar aqui uns ''pacotes''}
+ 	 			\item [Java] \emph{java.lang.reflect.*} \\ 
+ 	 			             \emph{java.lang.Class} \\ 
+ 	 			             \emph{java.lang.StackTraceElement};
+ 				\item [C++] \emph{typeid} e \emph{std::type\_info} (\alert{rudimentar}) \\
+				\item QT MetaObject Compiler
+ 			\end{description}
+ 		\end{block}
+ 	 \end{frame}
+ 	 \begin{frame}{Introspecção -- Exemplos (Java)}
+ 	 	\begin{exampleblock}{Obtenção dos atributos de uma classe}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
+ 	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
+ 	 \end{frame}
+ 	 \begin{frame}{Intercessão Estrutural}
+ 	 	\begin{block}{Definição}
+ 	 		Segundo \citeonline{chiba2000load}, intercessão estrutural permite o programador alterar a definição de uma classe, método ou atributo de um programa em execução.
+ 	 	\end{block} 	 	
+ 	 	\begin{block}{Suporte}
+ 	 		\begin{description}[Smalltalk]
+ 	 			\item [Smalltalk] Compilador faz intercessões estruturais;
+ 	 			\item [C++] Inexistente (\alert{Colocar algo sobre Open C++ ??})
+ 	 			\item [Java] Muito limitado:
+	 	 			\begin{itemize}
+	 	 				\item \emph{Dynamic proxies} (\emph{java.lang.reflect.Proxy});
+	 	 				\item Javassist \cite{chiba2000load} -- Provê mecanismos para suporte; 
+	 	 			\end{itemize}
+ 	 		\end{description}
+ 	 	\end{block}
+ 	 \end{frame}
+ 	 \begin{frame}{Intercessão Estrutural -- Exemplos}
+ 	 	\begin{exampleblock}{Nova classe -- Smalltalk}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
+ 	 	\begin{exampleblock}{Dynamic Proxy -- Java}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
- 	 	 	\alert{Escrever algo}
- 	 	 \end{frame}
- 	 	 \begin{frame}{Intercessão Estrutural}
- 	 	 	\alert{Escrever algo}
- 	 	 \end{frame}
+ 	 	\alert{Escrever algo}
+ 	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Princípio Aberto/Fechado}
  	 		Reflexão pode ferir o princípio Aberto/Fechado \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
@@ -213,6 +254,7 @@
  	 		http://www.laputan.org/talks/ss98/sld003.htm
  	 		\alert{Algo de Brian Foote}
  	 		\alert{Exemplo de crashing de smalltalk}
+ 	 		\alert{[Alguma exemplo de violação do principio da substituição de liskov]}
  	 	\end{block}
  	 	\begin{block}{Desempenho}
  	 		\begin{itemize}
@@ -233,6 +275,10 @@
 	 	Mostrar como é implementado. 
 	 	Fazer um paralelo com uma implementação em smalltalk, onde tem reflection ''de verdade'';
 	 \end{frame}
+ \section{Trabalhos Atuais}	 
+ \begin{frame}{Trabalhos Atuais}
+ 	\alert{Escrever}
+ \end{frame}
  \section{Referências}
  \begin{frame}[allowframebreaks]{Referências}
    \bibliography{apresentacao}
