@@ -310,7 +310,14 @@
  	 	\end{block}
  	 	\begin{block}{Encapsulamento}
  	 		Com reflexão, é trivial ignorar modificadores de acesso:
- 	 		\alert{Trecho de Código Java} 
+ 	 		\begin{adjustwidth}{2.5em}{0pt}
+ 	 			Field segredo = \\
+ 	 			\begin{adjustwidth}{2.5em}{0pt}
+ 	 				objeto.getClass().getDeclaredField("atributoPrivado");
+ 	 			\end{adjustwidth}
+				segredo.setAccessible(true);
+				System.out.println(segredo.get(objeto));
+			\end{adjustwidth}
  	 	\end{block}
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
