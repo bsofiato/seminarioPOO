@@ -228,7 +228,7 @@
  	 		StackTraceElement ultimoMetodo = pilha[1]; \\
  	 		System.out.println("O método " + ultimoMetodo.geMethodName()\\
  	 		\begin{adjustwidth}{2.5em}{0pt}
-		    	 + " foi chamado pela classe " + ultimoMetodo.getClassName())\\
+		    	 + " foi chamado pela classe " + ultimoMetodo.getClassName()\\
 				 + " na linha " + ultimoMetodo.getLineNumber()); \\
 		    \end{adjustwidth}
  	 	\end{exampleblock}
@@ -254,7 +254,16 @@
  	 		\alert{Escrever}
  	 	\end{exampleblock}
  	 	\begin{exampleblock}{Dynamic Proxy -- Java}
- 	 		\alert{Escrever}
+ 	 		InvocationHandler handler = new MyInvocationHandler(...);\\*
+		    Class proxyClass = Proxy.getProxyClass(
+	    	\begin{adjustwidth}{2.5em}{0pt}
+		        Foo.class.getClassLoader(), new Class[] { Foo.class });
+	        \end{adjustwidth}
+		    Foo f = (Foo) proxyClass
+		    \begin{adjustwidth}{2.5em}{0pt}
+		        .getConstructor(new Class[] { InvocationHandler.class }) \\*
+		        .newInstance(new Object[] { handler });
+	        \end{adjustwidth}
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
