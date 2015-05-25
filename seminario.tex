@@ -21,6 +21,9 @@
 \usepackage[abs]{overpic}
 
 \usepackage{tikz}
+
+\usepackage{textgreek}
+
 \usetikzlibrary{shapes.geometric, arrows}
 
 \newcommand\eqdef{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
@@ -68,14 +71,14 @@
  \section{Meta-modelo}
 	 \begin{frame}{Meta-}
 	 	\begin{block}{Etimologia}
-	 		O prefixo meta- remete ao grego \alert{COLOCAR}, que significa \emph{além} ou \emph{depois}.
+	 		O prefixo meta- remete ao grego μετα, que significa \emph{além} ou \emph{depois}.
 	 	\end{block}
 	 	\begin{block}{Significado}
 	 		Geralmente é usado para representar um conceito que é uma abstração de outro.
 	 	\end{block}
 	 	\begin{exampleblock}{Exemplos}
 	 		\begin{description}[Metalinguagem]
-	 			\item [Metafísica]  		\alert{Colocar um texto legal}
+	 			\item [Metafísica] É a investigação das realidades que transcendem a experiência sensível.
 	 			\item [Metalinguagem] São linguagens utilizadas para definição de outras linguagens:
 	 			\begin{itemize}
 	 				\item EBNF 
@@ -108,10 +111,11 @@
 	 			\item Define quatro camadas (do nível três ao zero).	
 	 		\end{itemize}
 	 	\end{block}	 
-	 	\begin{block}{ }
-	 		\alert{FIGURA -- adaptar da pagina MOF da wikipedia}
+     \end{frame}
+	 \begin{frame}{MOF -- Meta-object Facility}
+	 		%\alert{FIGURA -- adaptar da pagina MOF da wikipedia}
 	 		%\url{http://en.wikipedia.org/wiki/Meta-Object_Facility#/media/File:M0-m3.png}
-	 	\end{block}
+ 	 		\centerline{\includegraphics[totalheight=0.85\textheight]{MOF.png}}
 	 \end{frame}
 	 \begin{frame}{Meta-modelo UML}
 	 	\begin{block}{Características}
@@ -120,8 +124,8 @@
 	 			\item Incluso na 2a camada MOF;
 	 			\item Descrito em dois manuais complementares:
 	 			\begin{description}[Superestrutura]
-	 				\item [Infraestrutura] \alert{Escrever o que é}
-	 				\item [Superestrutura] \alert{Escrever o que é}
+	 				\item [Infraestrutura] Contém o conjunto de diagramas da UML.
+	 				\item [Superestrutura] Ddefine os elementos da linguagem.
 	 			\end{description}
 	 		\end{itemize}
 	 	\end{block}
