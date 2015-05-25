@@ -44,7 +44,7 @@
 {}
 {}
 \makeatother  
-%\usepackage{default}
+\usepackage{default}
 
 \AtBeginSection[]{
 	\begin{frame}[c]{ }
@@ -142,10 +142,12 @@
  \section{Programação Reflexiva}
 	 \begin{frame}{O que é reflexão}
 	 	\begin{block}{Definição}
-	 		\emph{''It's all about building your language out of first-class, dynamic object that you can look at and change at runtime''}
+	 		\begin{quote}
+				It's all about building your language out of first-class, dynamic object that you can look at and change at runtime.
 	 		\begin{flushright}
 	 			Brian Foote
-	 	\end{flushright} 	 		
+	 		\end{flushright} 	 		
+	 		\end{quote}
 	 	\end{block}
 	 	\begin{block}{História}
 	 		\begin{description}[9999]
@@ -322,16 +324,41 @@
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Perigoso}
- 	 		http://www.laputan.org/talks/ss98/sld003.htm
- 	 		\alert{Algo de Brian Foote}
- 	 		\alert{Exemplo de crashing de smalltalk}
- 	 		\alert{[Alguma exemplo de violação do principio da substituição de liskov]}
+ 	 		\begin{quote}
+				Yes, you bet it is ! \\
+				Yes, if you're not careful. \\
+				Yes, but you can make it safer. \\
+				Yes, but so is crossing the street.
+ 	 			\begin{flushright}
+ 	 				Brian Foote
+ 	 			\end{flushright}
+ 	 		\end{quote}
+ 	 		%http://www.laputan.org/talks/ss98/sld003.htm
  	 	\end{block}
+ 	 	\begin{exampleblock}{Exemplo}
+ 	 		\alert{Colocoar algo que trave o squeak}
+ 	 	\end{exampleblock}
+ 	 \end{frame}
+	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Desempenho}
  	 		\begin{itemize}
  	 			\item Invocações via reflexão costumam ter um custo de invocação maior -- \alert{questão de implementação};
- 	 			\item \alert{Colocar dados}
  	 		\end{itemize}
+ 	 	\end{block}
+ 	 	\begin{block}{\emph{Benchmark} (adaptado de \citeonline{janPetedi2008Reflexive})}
+			\begin{table}[h]
+				\begin{tabular}{rcc}
+					& \multicolumn{2}{c}{Tempo de Execução (ms)} \\
+					& Normal              & Reflexão             \\
+					\hline \hline
+					Acesso a Atributos    & 57                  & 12585                \\
+					Chamada de Métodos    & 41                  & 901                  \\
+					Construção de Objetos & 121                 & 212                  \\ \hline
+					\multicolumn{3}{r}{\footnotesize{Intel Core 2 Quad Q6600 64bit; 2.4Ghz; 2GB RAM}}\\
+					\multicolumn{3}{r}{\footnotesize{Windows Vista x64;Java 1.6 update 3.}}\\										
+					\hline
+				\end{tabular}
+			\end{table} 	 
  	 	\end{block}
  	 \end{frame}
  	\section{Estudos de Caso}
