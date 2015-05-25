@@ -272,7 +272,7 @@
 			\begin{itemize}
  	 			\item Fácil implementação de reflexão em C++
  	 			\item Possibilidade de criar códigos de otimização customizados
-				\item Extensão não-intrusiva de reuso de código.
+				\item Extensão não-intrusiva de reuso de código
  	 		\end{itemize}
  	 	\end{block}
 	 \end{frame}
@@ -282,7 +282,32 @@
  	 	\end{block}
 	 \end{frame}
 	 \begin{frame}{Javaassist}
-	 	Um pouco da história, e exemplos.
+	 	\begin{block}{História}
+			Também criado na década de 90 por Shigeru Chiba.
+ 	 	\end{block}
+	 	\begin{block}{Motivação}
+			\begin{itemize}
+ 	 			\item Especificar \emph{bytecode} usando código fonte
+ 	 			\item Implementação de programação orientada a aspectos em Java
+ 	 			\item Reflexão em tempo de execução
+				\item Chamada de procedimento remoto
+ 	 		\end{itemize}
+ 	 	\end{block}
+	 \end{frame}
+	 \begin{frame}{Javaassist}
+ 	 	\begin{block}{exemplo 1}
+ 	 		ClassPool pool = ClassPool.getDefault();\\*
+			CtClass cc = pool.get("test.Rectangle");\\*
+			cc.setSuperclass(pool.get("test.Point"));\\*
+			cc.writeFile();\\*
+ 	 	\end{block}
+ 	 	\begin{block}{exemplo 2}
+ 	 		ClassPool pool = ClassPool.getDefault();\\*
+			CtClass cc = pool.get("Point");\\*
+			CtMethod m = cc.getDeclaredMethod("move");\\*
+			m.insertBefore("{ System.out.println(\string$1); System.out.println(\string$2); }");\\*
+			cc.writeFile();\\*
+ 	 	\end{block}
 	 \end{frame}
 	 \begin{frame}{Easymock}
 	 	Mostrar o conceito de dynamic proxies do java (nativo)
