@@ -188,7 +188,7 @@
   	 		\begin{itemize}
   	 			\item É a interface para acesso aos metaobjetos de um sistema (semelhante ao conceito de protocolo de Smalltalk);
   	 			\item Dependente de linguagem ($\neq$ Metamodelo UML);  
-  	 			\item Suas operações podem ser agrupadas em dois grupos:
+  	 			\item Operações podem ser agrupadas em dois grupos:
   	 			\begin{description}[Introspecção]
   	 				\item [Introspecção] Examinam a estrutura e estado do programa;
   	 				\item [Intercessão] Realizam mudanças estruturais e comportamentais no programa.
@@ -198,17 +198,26 @@
   	 \end{frame}	
  	 \begin{frame}{Introspecção}
  	 	\begin{block}{Definição}
- 	 		Segundo \citeonline{forman2004java}, introspecção é o ato de examinar a estrutura e o estado de um programa em execução.
+ 	 		Introspecção é o ato de examinar a estrutura e o estado de um programa em execução \cite{forman2004java}.\\
  	 	\end{block}
  	 	\begin{block}{Suporte}
- 	 		\begin{description}[Smalltalk]
- 	 			\item [Smalltalk] \emph{Kernel-Classes} \\
- 	 							  \emph{Kernel-Methods} \\
- 	 			\item [Java] \emph{java.lang.reflect.*} \\ 
- 	 			             \emph{java.lang.Class} \\ 
- 	 			             \emph{java.lang.StackTraceElement};
- 				\item [C++] \emph{typeid} e \emph{std::type\_info} (\alert{rudimentar}) \\
-				\item QT MetaObject Compiler
+ 	 		\begin{description}[Smalltalk:]
+ 	 			\item [Smalltalk:] Suporte nativo:
+	 	 			\begin{itemize}
+	 	 				\item \emph{Kernel-Classes} \& \emph{Kernel-Methods}.
+	 	 			\end{itemize}
+
+ 	 			\item [Java:] Suporte nativo: 
+ 	 			\begin{itemize}
+	 	 			\item Pacote \emph{java.lang.reflect.*}; \\ 
+	 	 			\item \emph{java.lang.Class} \& \emph{java.lang.StackTraceElement}.
+ 	 			\end{itemize}
+
+ 	 			\item [C++:] Suporte nativo rudimentar: 
+	 	 			\begin{itemize}
+	 	 				\item \emph{typeid} e \emph{std::type\_info};
+	 	 				\item Suporte com o uso de ferramentas e extensões (QTMetaObjectCompiler, OpenC++)
+	 	 			\end{itemize}
  			\end{description}
  		\end{block}
  	 \end{frame}
@@ -238,13 +247,16 @@
  	 		Segundo \citeonline{chiba2000load}, intercessão estrutural permite o programador alterar a definição de uma classe, método ou atributo de um programa em execução.
  	 	\end{block} 	 	
  	 	\begin{block}{Suporte}
- 	 		\begin{description}[Smalltalk]
- 	 			\item [Smalltalk] Compilador faz intercessões estruturais;
- 	 			\item [C++] Inexistente (\alert{Colocar algo sobre Open C++ ??})
- 	 			\item [Java] Muito limitado:
+ 	 		\begin{description}[Smalltalk:]
+ 	 			\item [Smalltalk:] Suporte nativo (usado pelo compilador);
+ 	 			\item [C++:] Sem suporte nativo:  
+ 	 				\begin{itemize}
+		 	 			\item A extensão OpenC++ \cite{chiba1995metaobject} dá suporte;
+		 	 		\end{itemize}
+ 	 			\item [Java:] Suporte nativo limitado:
 	 	 			\begin{itemize}
 	 	 				\item \emph{Dynamic proxies} (\emph{java.lang.reflect.Proxy});
-	 	 				\item Javassist \cite{chiba2000load} -- Provê mecanismos para suporte; 
+	 	 				\item Biblioteca Javassist \cite{chiba2000load} dá suporte;
 	 	 			\end{itemize}
  	 		\end{description}
  	 	\end{block}
@@ -267,8 +279,31 @@
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
- 	 	\alert{Escrever algo}
+ 	 	\begin{block}{Definição}
+ 	 		Segundo definição de \citeonline{mostinckx2007mirages}, permite que programas alterem seu comportamento em execução, usando metaobjetos capazes de alterar a semântica da própria linguagem.
+ 	 	\end{block} 	 	 	 	
+ 		\begin{block}{Suporte}
+ 			\begin{description}  [Smalltalk:] 
+	 			\item [CLOS] É a única linguagem com suporte nativo;
+	 			\item [Smalltalk:] Sem suporte ($\nexists$ representação de construtos $<$ métodos). 
+	 			\begin{itemize}
+	 				\item Persephone e Geppetto \cite{marschall2006taking,rothlisberger2006geppetto}.
+	 			\end{itemize}
+	 			\item [Java:] Sem suporte nativo
+	 			\begin{itemize}
+	 				\item Reflex \cite{tanter2001reflex}.
+	 			\end{itemize}
+	 		\end{description}
+ 	 	\end{block} 	 	 	 	
  	 \end{frame}
+ 	 \begin{frame}{Intercessão Comportamental -- Exemplos}
+ 	 	\begin{exampleblock}{Algum exemplo -- Persephone ou Geppeto}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
+ 	 	\begin{exampleblock}{Algum exemplo -- Reflex}
+ 	 		\alert{Escrever}
+ 	 	\end{exampleblock}
+ 	 \end{frame} 	 
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Princípio Aberto/Fechado}
  	 		Reflexão pode ferir o princípio Aberto/Fechado \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
@@ -292,7 +327,7 @@
  	 		\end{itemize}
  	 	\end{block}
  	 \end{frame}
- 	\section{Exemplos}
+ 	\section{Estudos de Caso}
 	 \begin{frame}{Open C++}
 	 	\begin{block}{História}
 			Criado na década de 90 por Shigeru Chiba.
