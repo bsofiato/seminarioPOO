@@ -79,10 +79,13 @@
  	\begin{block}{Objetivos}
  		\begin{itemize}
  			\item Explicar os conceitos relativos a meta-objetos e linguagens reflexivas;
+ 			\pause
  			\item Mostrar um panorama das característica reflexivas das linguagens de programação;
+ 			\pause
  			\item Exemplificar usos de reflexão.
  		\end{itemize}
  	\end{block}
+ 	\pause
  	\begin{block}{Escopo}
  		Linguagens orientadas a objetos baseadas em classes, segundo categorização de \citeonline{wegner1987dimensions} (\emph{Dimensions of object-based language design}).
  	\end{block}
@@ -92,9 +95,11 @@
 	 	\begin{block}{Etimologia}
 	 		O prefixo meta- remete ao grego μετα, que significa \emph{além} ou \emph{depois}.
 	 	\end{block}
+	 	\pause
 	 	\begin{block}{Significado}
 	 		Geralmente é usado para representar um conceito que é uma abstração de outro.
 	 	\end{block}
+	 	\pause
 	 	\begin{exampleblock}{Exemplos}
 	 		\begin{description}[Metalinguagem]
 	 			\item [Metafísica] É a investigação das realidades que transcendem a experiência sensível.
@@ -110,9 +115,11 @@
 	 		\begin{block}{Definição}
 	 			Informalmente é um modelo de um modelo.
 	 		\end{block}
+	 		\pause
 	 		\begin{block}{Usos}
 	 			Normalmente, são utilizados em ferramentas que oferecem suporte à criação de modelos. Entre elas, ferramentas de CAD, CAE e CASE.
 	 		\end{block}
+	 		\pause
 	 		\begin{exampleblock}{Exemplos}
 	 			\begin{description}[Datawarehousing]
 	 			\item [Construção Civil] \emph{Building Information Model} (BIM);
@@ -137,6 +144,7 @@
 	 	\begin{block}{Características}
 	 		\begin{itemize}
 	 			\item Mantido pela OMG, define a estrutura e a semântica dos construtos da UML (versão atual -- 2.4.2);
+	 			\pause
 	 			\item Incluso na 2a camada MOF;
 	 		\end{itemize}
 	 	\end{block}
@@ -158,6 +166,7 @@
 	 		\end{flushright} 	 		
 	 		\end{quote}
 	 	\end{block}
+	 	\pause
 	 	\begin{block}{História}
 	 		\begin{description}[9999]
 	 			\item[1982] Definição por \citeonline{smith1982reflection} das características de sistemas ditos reflexivos;
@@ -171,10 +180,13 @@
 	 	\begin{block}{Descrição}
 	 		Define as três caraterísticas básicas necessárias em sistemas reflexivos. 
 	 	\end{block}
+	 	\pause
 	 	\begin{block}{Características -- Sistemas Reflexivos}
 	 	  \begin{enumerate}
 	 	  	\item Um sistema deve ter uma representação de si mesmo;
+	 	  	\pause
 	 	  	\item Deve haver uma conexão causal entre um sistema e sua representação;
+	 	  	\pause
 	 	  	\item Devem existir mecanismos com os quais um programa pode manipular sua representação. 
 	 	  \end{enumerate}
 	 	\end{block}
@@ -195,13 +207,18 @@
   	 	\begin{block}{Descrição}
   	 		Descreve a implementação do protocolo de metaobjetos do CLOS (Common Lisp Object System).
   	 	\end{block}
+  	 	\pause
   	 	\begin{block}{Protocolo de Metaobjetos}
   	 		\begin{itemize}
   	 			\item É a interface para acesso aos metaobjetos de um sistema (semelhante ao conceito de protocolo de Smalltalk);
+  	 			\pause
   	 			\item Dependente de linguagem ($\neq$ Metamodelo UML);  
+  	 			\pause
   	 			\item Operações podem ser agrupadas em dois grupos:
-  	 			\begin{description}[Introspecção]
+  	 			\pause
+  	 			\begin{description}[Introspecção]  	 			
   	 				\item [Introspecção] Examinam a estrutura e estado;
+  	 				\pause
   	 				\item [Intercessão] Realizam mudanças estruturais e comportamentais;
   	 			\end{description}
   	 		\end{itemize}
@@ -211,19 +228,20 @@
  	 	\begin{block}{Definição -- \cite{forman2004java}}
  	 		É o ato de examinar a estrutura e o estado de um programa em execução.
  	 	\end{block}
+ 	 	\pause
  	 	\begin{block}{Suporte}
  	 		\begin{description}[Smalltalk:]
  	 			\item [Smalltalk:] Suporte nativo:
 	 	 			\begin{itemize}
 	 	 				\item \emph{Kernel-Classes} \& \emph{Kernel-Methods}.
 	 	 			\end{itemize}
-
+	 	 		\pause
  	 			\item [Java:] Suporte nativo: 
  	 			\begin{itemize}
 	 	 			\item Pacote \emph{java.lang.reflect.*}; \\ 
 	 	 			\item \emph{java.lang.Class} \& \emph{java.lang.StackTraceElement}.
  	 			\end{itemize}
-
+ 	 			\pause
  	 			\item [C++:] Suporte nativo rudimentar: 
 	 	 			\begin{itemize}
 	 	 				\item \emph{typeid} e \emph{std::type\_info};
@@ -236,6 +254,7 @@
  	 	\begin{exampleblock}{Obtenção dos atributos de um objeto}
  	 		\lstinputlisting{examples/reflection-field.java}
  	 	\end{exampleblock}
+ 	 	\pause
  	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
  	 		StackTraceElement[] pilha = \\
  	 		\begin{adjustwidth}{2.5em}{0pt}
@@ -253,13 +272,16 @@
  	 	\begin{block}{Definição \cite{chiba2000load}}
  	 		Permite o programador alterar a definição de uma classe, método ou atributo de um programa em execução.
  	 	\end{block} 
+ 	 	\pause
  	 	\begin{block}{Suporte}
  	 		\begin{description}[Smalltalk:]
  	 			\item [Smalltalk:] Suporte nativo (usado pelo compilador);
+ 	 			\pause
  	 			\item [C++:] Sem suporte nativo:  
  	 				\begin{itemize}
 		 	 			\item A extensão OpenC++ \cite{chiba1995metaobject} dá suporte;
 		 	 		\end{itemize}
+	 	 		\pause
  	 			\item [Java:] Suporte nativo limitado:
 	 	 			\begin{itemize}
 	 	 				\item \emph{Dynamic proxies} (\emph{java.lang.reflect.Proxy});
@@ -272,6 +294,7 @@
  	 	\begin{exampleblock}{Nova classe -- Smalltalk}
  	 		\lstinputlisting[otherkeywords={subclass:,instanceVariableNames:, classVariableNames:,poolDictionaries:,category:,\#MCDiffyVersion}]{examples/reflection-smalltalk.st}
  	 	\end{exampleblock}
+ 	 	\pause
  	 	\begin{exampleblock}{Dynamic Proxy -- Java}
  	 		InvocationHandler handler = new MyInvocationHandler(...);\\*
 		    Class proxyClass = Proxy.getProxyClass(
@@ -288,14 +311,17 @@
  	 \begin{frame}{Intercessão Comportamental}
  	 	\begin{block}{Definição  \cite{mostinckx2007mirages}}
  	 		Permite que programas alterem seu comportamento em execução, usando metaobjetos capazes de alterar a semântica da própria linguagem.
- 	 	\end{block} 	 	 	 	
+ 	 	\end{block} 
+ 	 	\pause		 	 	 	
  		\begin{block}{Suporte}
  			\begin{description}  [Smalltalk:] 
 	 			\item [CLOS] É a única linguagem com suporte nativo;
+	 			\pause
 	 			\item [Smalltalk:] Sem suporte ($\nexists$ representação de construtos $<$ métodos). 
 	 			\begin{itemize}
 	 				\item Persephone e Geppetto \cite{marschall2006taking,rothlisberger2006geppetto}.
 	 			\end{itemize}
+	 			\pause
 	 			\item [Java:] Sem suporte nativo
 	 			\begin{itemize}
 	 				\item Reflex \cite{tanter2001reflex}.
@@ -307,6 +333,7 @@
  	 	\begin{exampleblock}{Algum exemplo -- Persephone ou Geppeto}
  	 		\alert{Escrever}
  	 	\end{exampleblock}
+ 	 	\pause
  	 	\begin{exampleblock}{Algum exemplo -- Reflex}
  	 		\alert{Escrever}
  	 	\end{exampleblock}
@@ -315,6 +342,7 @@
  	 	\begin{block}{Princípio Aberto/Fechado}
  	 		Reflexão pode ferir o princípio Aberto/Fechado \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
  	 	\end{block}
+ 	 	\pause
  	 	\begin{block}{Encapsulamento}
  	 		Com reflexão, é trivial ignorar modificadores de acesso:
  	 		\begin{adjustwidth}{2.5em}{0pt}
@@ -340,6 +368,7 @@
  	 		\end{quote}
  	 		%http://www.laputan.org/talks/ss98/sld003.htm
  	 	\end{block}
+ 	 	\pause
  	 	\begin{exampleblock}{Exemplo}
  	 		\alert{Colocoar algo que trave o squeak}
  	 	\end{exampleblock}
@@ -350,6 +379,7 @@
  	 			\item Invocações via reflexão costumam ter um custo de invocação maior -- \alert{questão de implementação};
  	 		\end{itemize}
  	 	\end{block}
+ 	 	\pause
  	 	\begin{block}{\emph{Benchmark} (adaptado de \citeonline{janPetedi2008Reflexive})}
 			\begin{table}[h]
 				\begin{tabular}{rcc}
@@ -371,10 +401,13 @@
 	 	\begin{block}{História}
 			Criado na década de 90 por Shigeru Chiba.
  	 	\end{block}
+ 	 	\pause
 	 	\begin{block}{Motivação}
 			\begin{itemize}
  	 			\item Fácil implementação de reflexão em C++
+ 	 			\pause
  	 			\item Possibilidade de criar códigos de otimização customizados
+ 	 			\pause
 				\item Extensão não-intrusiva de reuso de código
  	 		\end{itemize}
  	 	\end{block}
@@ -388,11 +421,15 @@
 	 	\begin{block}{História}
 			Também criado na década de 90 por Shigeru Chiba.
  	 	\end{block}
+ 	 	\pause
 	 	\begin{block}{Motivação}
 			\begin{itemize}
  	 			\item Especificar \emph{bytecode} usando código fonte
+ 	 			\pause
  	 			\item Implementação de programação orientada a aspectos em Java
+ 	 			\pause
  	 			\item Reflexão em tempo de execução
+ 	 			\pause
 				\item Chamada de procedimento remoto
  	 		\end{itemize}
  	 	\end{block}
@@ -404,6 +441,7 @@
 			cc.setSuperclass(pool.get("test.Point"));\\*
 			cc.writeFile();\\*
  	 	\end{exampleblock}
+ 	 	\pause
  	 	\begin{exampleblock}{Adição de comportamento}
  	 		ClassPool pool = ClassPool.getDefault();\\*
 			CtClass cc = pool.get("Point");\\*
