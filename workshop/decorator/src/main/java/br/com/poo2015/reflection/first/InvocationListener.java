@@ -1,4 +1,4 @@
-package br.com.synergia.javasssist2;
+package br.com.poo2015.reflection.first;
 
 import java.lang.reflect.Method;
 

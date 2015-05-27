@@ -1,4 +1,4 @@
-package br.com.synergia.javasssist2;
+package br.com.poo2015.reflection.first;
 
 public class Service {
   public String hello(String name) {
