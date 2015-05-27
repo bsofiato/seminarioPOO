@@ -15,6 +15,15 @@
 \usepackage{url}
 \usepackage{listings}
 
+\usepackage[framemethod=tikz]{mdframed}
+
+\lstset{language=Java,
+        basicstyle=\scriptsize\ttfamily,
+        keywordstyle=\scriptsize\color{blue}\ttfamily,
+        commentstyle=\color{green},
+	    stringstyle=\color{red}
+}
+
 \usepackage[htt]{hyphenat}
 \usepackage{etoolbox}
 \usepackage[abs]{overpic}
@@ -123,34 +132,25 @@
 	 \begin{frame}{MOF -- Meta-object Facility}
 	 	\begin{block}{Características}
 	 		\begin{itemize}
-	 			\item Definida pela OMG (Object Management Group) para a modelagem de metadados (versão atual -- 2.4.2);
-	 			\item Define quatro camadas (do nível três ao zero).	
+	 			\item Definida pela OMG (Object Management Group) para a modelagem de metamodelos (versão atual -- 2.4.2);
 	 		\end{itemize}
 	 	\end{block}	 
+	 	\begin{block}{ }
+ 	 		\centerline{\includegraphics[trim=0 370 250 0, clip=true, totalheight=0.80\textheight]{mof.pdf}}
+	 	\end{block}
      \end{frame}
-	 \begin{frame}{MOF -- Meta-object Facility}
-	 		%\alert{FIGURA -- adaptar da pagina MOF da wikipedia}
-	 		%\url{http://en.wikipedia.org/wiki/Meta-Object_Facility#/media/File:M0-m3.png}
- 	 		\centerline{\includegraphics[totalheight=0.85\textheight]{MOF.png}}
-	 \end{frame}
 	 \begin{frame}{Meta-modelo UML}
 	 	\begin{block}{Características}
 	 		\begin{itemize}
 	 			\item Mantido pela OMG, define a estrutura e a semântica dos construtos da UML (versão atual -- 2.4.2);
 	 			\pause
 	 			\item Incluso na 2a camada MOF;
-	 			\pause
-	 			\item Descrito em dois manuais complementares:
-	 			\begin{description}[Superestrutura]
-	 				\item [Infraestrutura] Contém o conjunto de diagramas da UML.
-	 				\item [Superestrutura] Define os elementos da linguagem.
-	 			\end{description}
 	 		\end{itemize}
 	 	\end{block}
-	\end{frame}
-	 \begin{frame}{Metamodelo UML -- Trecho}
-	 		\alert{FIGURA (trecho do meta-modelo)}
-	 \end{frame}
+	 	\begin{block}{ }
+ 	 		\centerline{\includegraphics[trim=0 400 70 0, clip=true, height=0.80\textheight]{uml.pdf}}
+	 	\end{block}
+	\end{frame}	 	
 	% \begin{frame}[c]{ }
 	%	\centering
 	%	\LARGE E se esse modelo estivesse disponível em tempo de execução ?
@@ -192,7 +192,8 @@
 	 \end{frame}
 	 \begin{frame}{Reification -- Reflection without Metaphysics \cite{friedman1984reification}}
 	 	\begin{block}{ }
-	 		\alert{Colocar figura}
+ 	 		\centering
+ 	 		\includegraphics[trim=0 755 310 0, clip=true]{wand.pdf}
 	 	\end{block}
 	 	\begin{block}{Operações}
 	 	\begin{description}[reificação]
@@ -200,7 +201,6 @@
 	 				\item [reflexão] Reflete, em um programa em execução, as modificações realizadas na sua representação.
 	 			\end{description}
 	 	\end{block}
-	 	
 	 \end{frame}	  	 
   	 \begin{frame}{The Art of Metaobject Protocol \cite{kiczales1991art}}
   	 	\begin{block}{Descrição}
@@ -250,12 +250,8 @@
  		\end{block}
  	 \end{frame}
  	 \begin{frame}{Introspecção -- Exemplos (Java)}
- 	 	\begin{exampleblock}{Obtenção dos atributos de uma classe}
- 	 		Class umaClasse = MinhaClasse.class; \\*
-			Field atributo = umaClasse.getField("umAtributo"); \\*
-			MinhaClasse instancia = new MinhaClasse(); \\*
-			Object valor = field.get(instancia); \\*
-			field.set(instancia, valor + 1); \\*
+ 	 	\begin{exampleblock}{Obtenção dos atributos de um objeto}
+ 	 		\lstinputlisting{examples/reflection-field.java}
  	 	\end{exampleblock}
  	 	\pause
  	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
@@ -272,9 +268,9 @@
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Estrutural}
- 	 	\begin{block}{Definição}
- 	 		Segundo \citeonline{chiba2000load}, intercessão estrutural permite o programador alterar a definição de uma classe, método ou atributo de um programa em execução.
- 	 	\end{block} 	 	
+ 	 	\begin{block}{Definição \cite{chiba2000load}}
+ 	 		Permite o programador alterar a definição de uma classe, método ou atributo de um programa em execução.
+ 	 	\end{block} 
  	 	\pause
  	 	\begin{block}{Suporte}
  	 		\begin{description}[Smalltalk:]
@@ -312,10 +308,10 @@
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
- 	 	\begin{block}{Definição}
- 	 		Segundo definição de \citeonline{mostinckx2007mirages}, permite que programas alterem seu comportamento em execução, usando metaobjetos capazes de alterar a semântica da própria linguagem.
- 	 	\end{block} 	 	 
- 	 	\pause	 	
+ 	 	\begin{block}{Definição  \cite{mostinckx2007mirages}}
+ 	 		Permite que programas alterem seu comportamento em execução, usando metaobjetos capazes de alterar a semântica da própria linguagem.
+ 	 	\end{block} 
+ 	 	\pause		 	 	 	
  		\begin{block}{Suporte}
  			\begin{description}  [Smalltalk:] 
 	 			\item [CLOS] É a única linguagem com suporte nativo;
