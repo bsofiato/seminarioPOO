@@ -14,9 +14,14 @@
 \usepackage{mathabx}
 \usepackage{url}
 \usepackage{listings}
+
+\usepackage[framemethod=tikz]{mdframed}
+
 \lstset{language=Java,
-                basicstyle=\footnotesize\ttfamily,
-                keywordstyle=\footnotesize\color{blue}\ttfamily,
+        basicstyle=\scriptsize\ttfamily,
+        keywordstyle=\scriptsize\color{blue}\ttfamily,
+        commentstyle=\color{green},
+	    stringstyle=\color{red}
 }
 
 \usepackage[htt]{hyphenat}
@@ -227,14 +232,8 @@
  		\end{block}
  	 \end{frame}
  	 \begin{frame}{Introspecção -- Exemplos (Java)}
- 	 	\begin{exampleblock}{Obtenção dos atributos de uma classe}
- 	 		\begin{lstlisting}
-	 	 		Class umaClasse = MinhaClasse.class; \\*
-				Field atributo = umaClasse.getField("umAtributo"); \\*
-				MinhaClasse instancia = new MinhaClasse(); \\*
-				Object valor = field.get(instancia); \\*
-				field.set(instancia, valor + 1); \\*
-			\end{lstlisting}
+ 	 	\begin{exampleblock}{Obtenção dos atributos de um objeto}
+ 	 		\lstinputlisting{examples/reflection-field.java}
  	 	\end{exampleblock}
  	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
  	 		StackTraceElement[] pilha = \\
