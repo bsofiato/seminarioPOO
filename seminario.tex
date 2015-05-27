@@ -8,13 +8,16 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{caption}
-\usepackage{listings}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{etoolbox}
 \usepackage{mathabx}
 \usepackage{url}
 \usepackage{listings}
+\lstset{language=Java,
+                basicstyle=\footnotesize\ttfamily,
+                keywordstyle=\footnotesize\color{blue}\ttfamily,
+}
 
 \usepackage[htt]{hyphenat}
 \usepackage{etoolbox}
@@ -233,11 +236,13 @@
  	 \end{frame}
  	 \begin{frame}{Introspecção -- Exemplos (Java)}
  	 	\begin{exampleblock}{Obtenção dos atributos de uma classe}
- 	 		Class umaClasse = MinhaClasse.class; \\*
-			Field atributo = umaClasse.getField("umAtributo"); \\*
-			MinhaClasse instancia = new MinhaClasse(); \\*
-			Object valor = field.get(instancia); \\*
-			field.set(instancia, valor + 1); \\*
+ 	 		\begin{lstlisting}
+	 	 		Class umaClasse = MinhaClasse.class; \\*
+				Field atributo = umaClasse.getField("umAtributo"); \\*
+				MinhaClasse instancia = new MinhaClasse(); \\*
+				Object valor = field.get(instancia); \\*
+				field.set(instancia, valor + 1); \\*
+			\end{lstlisting}
  	 	\end{exampleblock}
  	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
  	 		StackTraceElement[] pilha = \\
