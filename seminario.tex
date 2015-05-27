@@ -18,8 +18,8 @@
 \usepackage[framemethod=tikz]{mdframed}
 
 \lstset{language=Java,
-        basicstyle=\scriptsize\ttfamily,
-        keywordstyle=\scriptsize\color{blue}\ttfamily,
+        basicstyle=\scriptsize,
+        keywordstyle=\scriptsize\color{blue},
         commentstyle=\color{green},
 	    stringstyle=\color{magenta},
         showstringspaces=false
@@ -291,52 +291,36 @@
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
- 	 	\begin{block}{Definição  \cite{mostinckx2007mirages}}
- 	 		Permite que programas alterem seu comportamento em execução, usando metaobjetos capazes de alterar a semântica da própria linguagem.
+ 	 	\begin{block}{Definição \cite{denker2008sub}}
+ 	 		Permite que a alteração de construtos relativos à execuçao de um programa (Ex. passagens de mensagens, acesso à variáveis)
  	 	\end{block} 
  	 	\pause		 	 	 	
  		\begin{block}{Suporte}
  			\begin{description}  [Smalltalk:] 
-	 			\item [CLOS] É a única linguagem com suporte nativo;
+	 			\item [CLOS:] É a única linguagem com suporte nativo;
 	 			\pause
-	 			\item [Smalltalk:] Sem suporte ($\nexists$ representação de construtos $<$ métodos). 
+	 			\item [Smalltalk:] Sem suporte nativo: 
 	 			\begin{itemize}
 	 				\item Persephone e Geppetto \cite{marschall2006taking,rothlisberger2006geppetto}.
 	 			\end{itemize}
 	 			\pause
-	 			\item [Java:] Sem suporte nativo
+	 			\item [Java:] Sem suporte nativo:
 	 			\begin{itemize}
-	 				\item Reflex \cite{tanter2001reflex}.
+	 				\item Reflex e Javassit \cite{tanter2001reflex,chiba2000load}.
 	 			\end{itemize}
 	 		\end{description}
  	 	\end{block} 	 	 	 	
  	 \end{frame}
- 	 \begin{frame}{Intercessão Comportamental -- Exemplos}
- 	 	\begin{exampleblock}{Algum exemplo -- Persephone ou Geppeto}
- 	 		\alert{Escrever}
- 	 	\end{exampleblock}
- 	 	\pause
- 	 	\begin{exampleblock}{Algum exemplo -- Reflex}
- 	 		\alert{Escrever}
- 	 	\end{exampleblock}
- 	 \end{frame} 	 
- 	 \begin{frame}{Críticas à Programação Reflexiva}
- 	 	\begin{block}{Princípio Aberto/Fechado}
- 	 		Reflexão pode ferir o princípio Aberto/Fechado \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
- 	 	\end{block}
- 	 	\pause
- 	 	\begin{block}{Encapsulamento}
- 	 		Com reflexão, é trivial ignorar modificadores de acesso:
- 	 		\lstinputlisting{examples/private-access.java}
- 	 	\end{block}
+ 	 \begin{frame}{Intercessão Comportamental -- Torre Reflexiva}
+ 	 	\alert{COLOCAR}
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Perigoso}
  	 		\begin{quote}
-				Yes, you bet it is ! \\
-				Yes, if you're not careful. \\
-				Yes, but you can make it safer. \\
-				Yes, but so is crossing the street.
+ 	 			Yes, you bet it is ! \\
+ 	 			Yes, if you're not careful. \\
+ 	 			Yes, but you can make it safer. \\
+ 	 			Yes, but so is crossing the street.
  	 			\begin{flushright}
  	 				Brian Foote
  	 			\end{flushright}
@@ -344,34 +328,34 @@
  	 		%http://www.laputan.org/talks/ss98/sld003.htm
  	 	\end{block}
  	 	\pause
- 	 	\begin{exampleblock}{Exemplo}
- 	 		\alert{Colocoar algo que trave o squeak}
- 	 	\end{exampleblock}
+ 	 	\begin{block}{Encapsulamento}
+ 	 		Com reflexão, é trivial ignorar modificadores de acesso:
+ 	 		\lstinputlisting{examples/private-access.java}
+ 	 	\end{block}
  	 \end{frame}
 	 \begin{frame}{Críticas à Programação Reflexiva}
+ 	 	\begin{block}{Princípio Aberto/Fechado}
+ 	 		Reflexão pode ferir o princípio Aberto/Fechado  	 	 \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
+ 	 	\end{block}
  	 	\begin{block}{Desempenho}
  	 		\begin{itemize}
  	 			\item Invocações via reflexão costumam ter um custo de invocação maior -- \alert{questão de implementação};
  	 		\end{itemize}
+ 	 		\footnotesize
+ 	 			\begin{table}[h]
+ 	 				\begin{tabular}{rcc}
+ 	 					& Normal (ms)              & Reflexão (ms)            \\
+ 	 					\hline \hline
+ 	 					Acesso a Atributos    & 57                  & 12585                \\
+ 	 					Chamada de Métodos    & 41                  & 901                  \\
+ 	 					Construção de Objetos & 121                 & 212                  \\ \hline
+ 	 					\multicolumn{3}{l}{\footnotesize{Fonte : \citeonline{janPetedi2008Reflexive}}}
+ 	 				\end{tabular}
+ 	 			\end{table} 	 
  	 	\end{block}
  	 	\pause
- 	 	\begin{block}{\emph{Benchmark} (adaptado de \citeonline{janPetedi2008Reflexive})}
-			\begin{table}[h]
-				\begin{tabular}{rcc}
-					& \multicolumn{2}{c}{Tempo de Execução (ms)} \\
-					& Normal              & Reflexão             \\
-					\hline \hline
-					Acesso a Atributos    & 57                  & 12585                \\
-					Chamada de Métodos    & 41                  & 901                  \\
-					Construção de Objetos & 121                 & 212                  \\ \hline
-					\multicolumn{3}{r}{\footnotesize{Intel Core 2 Quad Q6600 64bit; 2.4Ghz; 2GB RAM}}\\
-					\multicolumn{3}{r}{\footnotesize{Windows Vista x64;Java 1.6 update 3.}}\\										
-					\hline
-				\end{tabular}
-			\end{table} 	 
- 	 	\end{block}
  	 \end{frame}
- 	\section{Estudos de Caso}
+ 	\section{Exemplo Prático}
 	 \begin{frame}{Open C++}
 	 	\begin{block}{História}
 			Criado em 1995 por Shigeru Chiba.
@@ -392,41 +376,63 @@
  	 		\includegraphics[width=1\textwidth]{examples/example_open_cxx}
  	 	\end{block}
 	 \end{frame}
-	 \begin{frame}{Javaassist}
+	 \begin{frame}{Javassist -- \textbf{Java} Programming A\textbf{ssist}ant}
 	 	\begin{block}{História}
-			Criado em 2000 também por Shigeru Chiba.
+	 		\begin{itemize}
+	 			\item Também criado por Shigeru Chiba \cite{chiba2000load};
+	 			\pause
+	 			\item Atualmente mantido pela JBoss;
+	 			\pause
+	 			\item Última versão -- 3.19.0-GA (06/01/2015).
+	 		\end{itemize}
  	 	\end{block}
  	 	\pause
-	 	\begin{block}{Motivação}
+ 	 	\begin{block}{Disponível em :}
+			\url{http://jboss-javassist.github.io/javassist/}		
+ 	 	\end{block} 	 	
+ 	 	\pause
+	 	\begin{block}{Características}
 			\begin{itemize}
- 	 			\item Especificar \emph{bytecode} usando código fonte
- 	 			\pause
- 	 			\item Implementação de programação orientada a aspectos em Java
- 	 			\pause
- 	 			\item Reflexão em tempo de execução
- 	 			\pause
-				\item Chamada de procedimento remoto
+				\item Introspecção;
+				\item Intersseção estrutural (\alert{classes não carregadas});
+				\item Intersseção comportamental (\alert{com proxy e method handler});
  	 		\end{itemize}
  	 	\end{block}
 	 \end{frame}
-	 \begin{frame}{Javaassist - Exemplos}
- 	 	\begin{exampleblock}{Alteração de Super Classe}
- 	 		\lstinputlisting{examples/super-class.java}
- 	 	\end{exampleblock}
- 	 	\pause
- 	 	\begin{exampleblock}{Adição de comportamento}
- 	 		\lstinputlisting{examples/add-behavior.java}
- 	 	\end{exampleblock}
+	 \begin{frame}{Javaassist}
+	 	\begin{block}{Alguns projetos que usam}
+	 		\begin{itemize}
+	 			\item Hibernate;
+	 			\pause
+	 			\item JBoss Seam;
+	 			\pause
+	 		\end{itemize}
+	 	\end{block}
+	 	\pause
+	 	\begin{exampleblock}{Decorador dinâmico}
+	 		\centering Exemplo prático na IDE
+	 	\end{exampleblock}
+	 	%\begin{exampleblock}{Observer on steroids}
+ 		%\end{exampleblock}
+	 			 	
 	 \end{frame}
+ %	 	\begin{exampleblock}{Alteração de Super Classe}
+ %	 		\lstinputlisting{examples/super-class.java}
+ %	 	\end{exampleblock}
+% 	 	\pause
+% 	 	\begin{exampleblock}{Adição de comportamento}
+% 	 		\lstinputlisting{examples/add-behavior.java}
+% 	 	\end{exampleblock} 
+%	 \end{frame}
 	 \begin{frame}{Easymock}
 	 	Mostrar o conceito de dynamic proxies do java (nativo)
 	 	Mostrar como é implementado. 
 	 	Fazer um paralelo com uma implementação em smalltalk, onde tem reflection ''de verdade'';
 	 \end{frame}
- \section{Trabalhos Atuais}	 
- \begin{frame}{Trabalhos Atuais}
- 	\alert{Escrever}
- \end{frame}
+% \section{Trabalhos Atuais}	 
+% \begin{frame}{Trabalhos Atuais}
+% 	\alert{Escrever}
+% \end{frame}
  \section{Referências}
  \begin{frame}[allowframebreaks]{Referências}
    \bibliography{apresentacao}
