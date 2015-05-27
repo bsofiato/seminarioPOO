@@ -196,6 +196,7 @@
  	 		\centering
  	 		\includegraphics[trim=0 755 310 0, clip=true]{wand.pdf}
 	 	\end{block}
+	 	\pause
 	 	\begin{block}{Operações}
 	 	\begin{description}[reificação]
 	 				\item [reificação] Obtém uma representação do programa em execução;
@@ -311,8 +312,9 @@
 	 		\end{description}
  	 	\end{block} 	 	 	 	
  	 \end{frame}
- 	 \begin{frame}{Intercessão Comportamental -- Torre Reflexiva}
- 	 	\alert{COLOCAR}
+ 	 \begin{frame}[c]{Intercessão Comportamental -- Exemplos}
+ 	 		\centering
+ 	 		\LARGE Será dado um exemplo prático mais adiante.
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
  	 	\begin{block}{Perigoso}
@@ -337,6 +339,7 @@
  	 	\begin{block}{Princípio Aberto/Fechado}
  	 		Reflexão pode ferir o princípio Aberto/Fechado  	 	 \cite{meyer1988object} -- é trivial ignorar restrições e modificar trechos de código originalmente fechados à modificação.
  	 	\end{block}
+ 	 	\pause
  	 	\begin{block}{Desempenho}
  	 		\begin{itemize}
  	 			\item Invocações via reflexão costumam ter um custo de invocação maior -- \alert{questão de implementação};
@@ -353,7 +356,6 @@
  	 				\end{tabular}
  	 			\end{table} 	 
  	 	\end{block}
- 	 	\pause
  	 \end{frame}
  	\section{Exemplo Prático}
 	 \begin{frame}{Open C++}
@@ -403,13 +405,11 @@
 	 	\begin{block}{Alguns projetos que usam}
 	 		\begin{itemize}
 	 			\item Hibernate;
-	 			\pause
 	 			\item JBoss Seam;
-	 			\pause
 	 		\end{itemize}
 	 	\end{block}
 	 	\pause
-	 	\begin{exampleblock}{Decorador dinâmico}
+	 	\begin{exampleblock}{Decorador \cite{gamma1994design} reflexivo}
 	 		\centering Exemplo prático na IDE
 	 	\end{exampleblock}
 	 	%\begin{exampleblock}{Observer on steroids}
@@ -424,11 +424,11 @@
 % 	 		\lstinputlisting{examples/add-behavior.java}
 % 	 	\end{exampleblock} 
 %	 \end{frame}
-	 \begin{frame}{Easymock}
-	 	Mostrar o conceito de dynamic proxies do java (nativo)
-	 	Mostrar como é implementado. 
-	 	Fazer um paralelo com uma implementação em smalltalk, onde tem reflection ''de verdade'';
-	 \end{frame}
+%	 \begin{frame}{Easymock}
+%	 	Mostrar o conceito de dynamic proxies do java (nativo)
+%	 	Mostrar como é implementado. 
+%	 	Fazer um paralelo com uma implementação em smalltalk, onde tem reflection ''de verdade'';
+%	 \end{frame}
 % \section{Trabalhos Atuais}	 
 % \begin{frame}{Trabalhos Atuais}
 % 	\alert{Escrever}
