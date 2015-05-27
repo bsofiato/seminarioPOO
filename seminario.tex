@@ -21,7 +21,8 @@
         basicstyle=\scriptsize\ttfamily,
         keywordstyle=\scriptsize\color{blue}\ttfamily,
         commentstyle=\color{green},
-	    stringstyle=\color{red}
+	    stringstyle=\color{red},
+	    showstringspaces=false
 }
 
 \usepackage[htt]{hyphenat}
@@ -255,16 +256,7 @@
  	 	\end{exampleblock}
  	 	\pause
  	 	\begin{exampleblock}{Obtenção do método que invocou o método corrente}
- 	 		StackTraceElement[] pilha = \\
- 	 		\begin{adjustwidth}{2.5em}{0pt}
- 	 			Thread.currentThread().getStackTrace(); \\
-			\end{adjustwidth}
- 	 		StackTraceElement ultimoMetodo = pilha[1]; \\
- 	 		System.out.println("O método " + ultimoMetodo.geMethodName()\\
- 	 		\begin{adjustwidth}{2.5em}{0pt}
-		    	 + " foi chamado pela classe " + ultimoMetodo.getClassName()\\
-				 + " na linha " + ultimoMetodo.getLineNumber()); \\
-		    \end{adjustwidth}
+ 	 		\lstinputlisting{examples/method-find.java}
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Estrutural}
@@ -295,16 +287,7 @@
  	 	\end{exampleblock}
  	 	\pause
  	 	\begin{exampleblock}{Dynamic Proxy -- Java}
- 	 		InvocationHandler handler = new MyInvocationHandler(...);\\*
-		    Class proxyClass = Proxy.getProxyClass(
-	    	\begin{adjustwidth}{2.5em}{0pt}
-		        Foo.class.getClassLoader(), new Class[] { Foo.class });
-	        \end{adjustwidth}
-		    Foo f = (Foo) proxyClass
-		    \begin{adjustwidth}{2.5em}{0pt}
-		        .getConstructor(new Class[] { InvocationHandler.class }) \\*
-		        .newInstance(new Object[] { handler });
-	        \end{adjustwidth}
+ 	 		\lstinputlisting{examples/dynamic-proxy.java}
  	 	\end{exampleblock}
  	 \end{frame}
  	 \begin{frame}{Intercessão Comportamental}
@@ -344,14 +327,7 @@
  	 	\pause
  	 	\begin{block}{Encapsulamento}
  	 		Com reflexão, é trivial ignorar modificadores de acesso:
- 	 		\begin{adjustwidth}{2.5em}{0pt}
- 	 			Field segredo = \\
- 	 			\begin{adjustwidth}{2.5em}{0pt}
- 	 				objeto.getClass().getDeclaredField("atributoPrivado");
- 	 			\end{adjustwidth}
-				segredo.setAccessible(true);
-				System.out.println(segredo.get(objeto));
-			\end{adjustwidth}
+ 	 		\lstinputlisting{examples/private-access.java}
  	 	\end{block}
  	 \end{frame}
  	 \begin{frame}{Críticas à Programação Reflexiva}
@@ -413,7 +389,7 @@
 	 \end{frame}
 	 \begin{frame}{Open C++ - Exemplo}
  	 	\begin{block}{Adição de comportamento}
- 	 		\includegraphics[width=1\textwidth]{example_open_cxx}
+ 	 		\includegraphics[width=1\textwidth]{examples/example_open_cxx}
  	 	\end{block}
 	 \end{frame}
 	 \begin{frame}{Javaassist}
@@ -435,18 +411,11 @@
 	 \end{frame}
 	 \begin{frame}{Javaassist - Exemplos}
  	 	\begin{exampleblock}{Alteração de Super Classe}
- 	 		ClassPool pool = ClassPool.getDefault();\\*
-			CtClass cc = pool.get("test.Rectangle");\\*
-			cc.setSuperclass(pool.get("test.Point"));\\*
-			cc.writeFile();\\*
+ 	 		\lstinputlisting{examples/super-class.java}
  	 	\end{exampleblock}
  	 	\pause
  	 	\begin{exampleblock}{Adição de comportamento}
- 	 		ClassPool pool = ClassPool.getDefault();\\*
-			CtClass cc = pool.get("Point");\\*
-			CtMethod m = cc.getDeclaredMethod("move");\\*
-			m.insertBefore("{ System.out.println(\string$1); System.out.println(\string$2); }");\\*
-			cc.writeFile();\\*
+ 	 		\lstinputlisting{examples/add-behavior.java}
  	 	\end{exampleblock}
 	 \end{frame}
 	 \begin{frame}{Easymock}
