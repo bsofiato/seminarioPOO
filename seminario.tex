@@ -21,7 +21,8 @@
         basicstyle=\scriptsize\ttfamily,
         keywordstyle=\scriptsize\color{blue}\ttfamily,
         commentstyle=\color{green},
-	    stringstyle=\color{red}
+	    stringstyle=\color{magenta},
+        showstringspaces=false
 }
 
 \usepackage[htt]{hyphenat}
@@ -269,7 +270,7 @@
  	 \end{frame}
  	 \begin{frame}{Intercessão Estrutural -- Exemplos}
  	 	\begin{exampleblock}{Nova classe -- Smalltalk}
- 	 		\alert{Escrever}
+ 	 		\lstinputlisting[otherkeywords={subclass:,instanceVariableNames:, classVariableNames:,poolDictionaries:,category:,\#MCDiffyVersion}]{examples/reflection-smalltalk.st}
  	 	\end{exampleblock}
  	 	\begin{exampleblock}{Dynamic Proxy -- Java}
  	 		InvocationHandler handler = new MyInvocationHandler(...);\\*
