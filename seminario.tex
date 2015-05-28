@@ -14,13 +14,15 @@
 \usepackage{mathabx}
 \usepackage{url}
 \usepackage{listings}
+\usepackage[normalem]{ulem}
+
 
 \usepackage[framemethod=tikz]{mdframed}
 
 \lstset{language=Java,
         basicstyle=\scriptsize,
         keywordstyle=\scriptsize\color{blue},
-        commentstyle=\color{green},
+        commentstyle=\color[rgb]{0.13, 0.54, 0.13},
 	    stringstyle=\color{magenta},
         showstringspaces=false
 }
@@ -42,7 +44,7 @@
 \defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
 
 \institute{POO 2015\\IME -- USP}
-\author{Bruno Sofiato\\Vinicius Nascimento Silva}
+\author[Bruno e Vinicius]{Bruno Sofiato \and Vinicius Nascimento Silva}
 
 \title{Reflexão computacional e meta-objetos}
 
@@ -366,10 +368,28 @@
  	 			\end{table} 	 
  	 	\end{block}
  	 \end{frame}
- %	 \subsection{Melhores práticas}
-%	 \begin{frame}{Melhores práticas}
-%	 	\begin{itemize}
-%	 		\item Como regra, objetos não devem ser acessados reflexivamente;
+ 	 \subsection{Boas práticas}
+	 \begin{frame}{Melhores práticas}
+	 	\begin{block}{Uso consciente}
+	 		\begin{itemize}
+	 			\item<1-> \sout{Objetos com lógica de negócio/dominio};
+	 			\pause
+	 			\item<2-> Construção de \emph{frameworks}.
+	 		\end{itemize}
+	 	\end{block}
+	 	\begin{block}{Dosagem correta}<3->
+	 		Pode-se aproveitar os recursos da reflexão utilizando-se um pequeno subconjunto de operações. \cite{bloch2008effective}.
+	 	\end{block}
+	 	  \temporal<4>{}
+	 		{\begin{exampleblock}{Exemplo -- Código original}
+	 				\lstinputlisting{examples/boa-pratica.original.java}
+	 		\end{exampleblock}}	
+	 {\begin{exampleblock}{Exemplo -- Código refatorado}
+	 			\lstinputlisting{examples/boa-pratica.refatorado.java}
+	 		\end{exampleblock}}
+	 		\textbf<5>{ }	
+	 		
+	 \end{frame}
 %	 		\item É possível obter os muitos dos benefícios da reflexãos usando recursos específicos:
 %	 		\begin{itemize}
 %	 			\item Cria-se objetos via reflexão mas acessa-se por meio de uma interface ou super classe;
@@ -395,9 +415,9 @@
  	 	\end{block}
 	 \end{frame}
 	 \begin{frame}{Open C++ - Exemplo}
- 	 	\begin{block}{Adição de comportamento}
+ 	 	\begin{exampleblock}{Adição de comportamento}
  	 		\includegraphics[width=1\textwidth]{examples/example_open_cxx}
- 	 	\end{block}
+ 	 	\end{exampleblock}
 	 \end{frame}
 	 \begin{frame}{Javassist -- \textbf{Java} Programming A\textbf{ssist}ant}
 	 	\begin{block}{História}

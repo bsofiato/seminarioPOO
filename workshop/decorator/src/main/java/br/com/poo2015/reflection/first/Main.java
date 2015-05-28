@@ -1,17 +1,13 @@
 package br.com.poo2015.reflection.first;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import javassist.util.proxy.MethodHandler;
-import javassist.util.proxy.ProxyFactory;
-import javassist.util.proxy.ProxyObject;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
   
   public static void main(String [] args) throws Exception {
     //Service object = InstrumentableFactory.newInstance(Service.class);
-    List object = InstrumentableFactory.newInstance(ArrayList.class);
+    Set object = InstrumentableFactory.newInstance(HashSet.class);
     object.add("teste");
     while (true) {
       if (Math.random() < 0.5) {
